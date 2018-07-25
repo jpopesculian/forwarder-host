@@ -18,4 +18,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'evt-component_host'
   s.add_runtime_dependency 'twilio_lib_component'
   s.add_runtime_dependency 'sms_component'
+  s.add_runtime_dependency 'server_component'
 end

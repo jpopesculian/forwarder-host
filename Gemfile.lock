@@ -1,8 +1,29 @@
 PATH
+  remote: ../chainable-message
+  specs:
+    evt-chainable_message (0.0.0)
+
+PATH
+  remote: ../server-component
+  specs:
+    server_component (0.0.0)
+      eventide-postgres
+      evt-chainable_message
+      evt-try
+      ruby-boolean
+      sms_client
+
+PATH
   remote: ../sms-component
   specs:
+    sms_client (0.0.0)
+      evt-chainable_message
+      evt-configure
+      evt-messaging-postgres
+      twilio_lib_client
     sms_component (0.0.0)
       eventide-postgres
+      evt-chainable_message
       evt-try
       ruby-boolean
       twilio_lib_client
@@ -11,10 +32,12 @@ PATH
   remote: ../twilio-lib-component
   specs:
     twilio_lib_client (0.0.0)
+      evt-chainable_message
       evt-configure
       evt-messaging-postgres
     twilio_lib_component (0.0.0)
       eventide-postgres
+      evt-chainable_message
       evt-try
       ruby-boolean
       twilio-ruby
@@ -24,6 +47,7 @@ PATH
   specs:
     forwarder_host (0.0.0)
       evt-component_host
+      server_component
       sms_component
       twilio_lib_component
 
@@ -102,7 +126,7 @@ GEM
       evt-settings
       pg
     evt-message_store-postgres-database (0.3.0.0)
-    evt-messaging (0.25.1.0)
+    evt-messaging (0.26.0.0)
       evt-message_store
     evt-messaging-postgres (0.7.0.3)
       evt-message_store-postgres
@@ -157,7 +181,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  evt-chainable_message!
   forwarder_host!
+  server_component!
   sms_component!
   twilio_lib_component!
 
